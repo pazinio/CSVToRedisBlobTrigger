@@ -1,8 +1,8 @@
 # CSVToRedisBlobTrigger
 
 
-This code demonstrates Azure function blob trigger <br>
-The given function reads a csv file by a StreamReader and set the hash code valus inside a Azure Cache for Redis.
+Azure function - triggered by blob <br>
+The following function reads csv files by a StreamReader object then it set the hash code valus within a Azure Cache for Redis.
  
  
  
