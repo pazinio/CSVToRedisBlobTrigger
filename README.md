@@ -1,8 +1,7 @@
 # CSVToRedisBlobTrigger
 
 
-Azure Function - Triggered by Blob 
-(The Blob storage trigger starts a function when a new or updated blob is detected) <br>
+Azure Blob storage trigger for Azure Functions <br> (The Blob storage trigger starts a function when a new or updated blob is detected) <br>
 
 ![alt text](https://github.com/pazinio/CSVToRedisBlobTrigger/blob/main/img.png?raw=true)
 
