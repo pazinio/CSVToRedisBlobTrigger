@@ -69,6 +69,7 @@ namespace Company.Function
         }
     }  
 
+    // adding stable hash code
     public static class StringExtensionMethods
     {
         public static int GetStableHashCode(this string str)
