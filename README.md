@@ -2,7 +2,8 @@
 
 
 Azure Function - Triggered by Blob <br>
-The following function triggered by new csv files read the files data and put hash code valus within a Azure Cache for Redis.
+
+The following code (azure function triggered by new csv files) reads data and put stable hash code valus within an Azure Cache for Redis instance.
  
  
  
