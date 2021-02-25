@@ -50,7 +50,7 @@ namespace Company.Function
             {
                 var hashCode = p.ToString().GetStableHashCode();
                 db.StringSetAsync(hashCode.ToString(), hashCode);
-                log.LogInformation($"{hashCode} was set to redis.");
+              //  log.LogInformation($"{hashCode} was set to redis.");
             }
             log.LogInformation($"done.");
 
