@@ -48,8 +48,9 @@ namespace Company.Function
 
             foreach (Person p in records)
             {
-                db.StringSetAsync(p.GetHashCode().ToString(), p.GetHashCode());
-                log.LogInformation($"{p.GetHashCode()} was set.");
+                var hashCode = p.ToString().GetStableHashCode();
+                db.StringSetAsync(hashCode.ToString(), hashCode);
+                log.LogInformation($"{hashCode} was set to redis.");
             }
             log.LogInformation($"done.");
 
@@ -62,22 +63,31 @@ namespace Company.Function
         public string phone { get; set; }
         public string date { get; set; }
 
-        public override bool Equals(object obj)
+        public override string ToString()
         {
-            return obj is Person person &&
-                   id == person.id &&
-                   phone == person.phone &&
-                   date == person.date;
+            return $"Person(id:{id}, phone:{phone}, date:{date})";
         }
+    }  
 
-        public override int GetHashCode()
+    public static class StringExtensionMethods
+    {
+        public static int GetStableHashCode(this string str)
         {
-            return HashCode.Combine(id, phone, date);
-        }
+            unchecked
+            {
+                int hash1 = 5381;
+                int hash2 = hash1;
 
-        // public override string ToString()
-        // {
-        //     return $"Person(id:{id}, phone:{phone}, date:{date})";
-        // }
+                for(int i = 0; i < str.Length && str[i] != '\0'; i += 2)
+                {
+                    hash1 = ((hash1 << 5) + hash1) ^ str[i];
+                    if (i == str.Length - 1 || str[i+1] == '\0')
+                        break;
+                    hash2 = ((hash2 << 5) + hash2) ^ str[i+1];
+                }
+
+                return hash1 + (hash2*1566083941);
+            }
+        }
     }  
 }
