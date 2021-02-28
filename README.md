@@ -1,4 +1,4 @@
-# CSVToRedisBlobTrigger
+# CsvFilesToRedisBlobTrigger
 
 
 Azure Blob Storage trigger for Azure Functions <br> (The Blob Storage trigger starts a function when a new or updated blob is detected). <br> <br>
