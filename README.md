@@ -1,7 +1,7 @@
 # ImportAzureBlobCsvFilesToRedisWithAzureFunction
 
 <br>
-## Azure Blob Storage trigger for Azure Functions Sample
+Azure Blob Storage trigger for Azure Functions Sample
 (Blob trigger starts a function when a new or updated blob is detected). <br> <br>
 
 The following repository contains a sample of reading csv files within a blob and adding stable hash-code valus into an Azure Cache for Redis instance.
